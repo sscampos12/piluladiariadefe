@@ -1,0 +1,16 @@
+{
+  "name": "Pílula Diária de Fé",
+  "short_name": "Pílula de Fé",
+  "description": "Fortalecendo sua caminhada cristã com reflexões diárias baseadas na Palavra de Deus.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
