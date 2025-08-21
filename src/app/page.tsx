@@ -1,5 +1,7 @@
-import { promises as fs } from 'fs';
-import path from 'path';
+
+'use client';
+
+import { useEffect, useState } from 'react';
 import { suggestAction } from '@/ai/flows/suggest-action';
 import DailyMessageCard from '@/components/DailyMessageCard';
 import type { SuggestActionOutput } from '@/ai/flows/suggest-action';
@@ -18,23 +20,78 @@ function getDayOfYear() {
   return Math.floor(diff / oneDay);
 }
 
-export default async function Home() {
-  // Read messages.json
-  const filePath = path.join(process.cwd(), 'public', 'messages.json');
-  let messages: Message[];
-  try {
-    const fileContents = await fs.readFile(filePath, 'utf8');
-    messages = JSON.parse(fileContents);
-  } catch (error) {
-    console.error("Failed to read or parse messages.json", error);
+export default function Home() {
+  const [messageData, setMessageData] = useState<Message | null>(null);
+  const [dateString, setDateString] = useState<string | null>(null);
+  const [aiSuggestion, setAiSuggestion] = useState<SuggestActionOutput>({ actionSuggested: false, action: '' });
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadData() {
+      try {
+        setLoading(true);
+        
+        const dayOfYear = getDayOfYear();
+        // In a real client-side scenario, you would fetch this from an API endpoint.
+        const response = await fetch('/messages.json');
+        if (!response.ok) {
+          throw new Error('Failed to fetch messages');
+        }
+        const messages: Message[] = await response.json();
+
+        if (!messages || messages.length === 0) {
+            throw new Error("No messages available. Please check the configuration.");
+        }
+
+        const currentMessage = messages[(dayOfYear - 1) % messages.length];
+        setMessageData(currentMessage);
+        
+        const today = new Date();
+        const currentDateString = today.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+        });
+        setDateString(currentDateString);
+
+        try {
+          const suggestion = await suggestAction({
+            message: currentMessage.message,
+            date: currentDateString,
+          });
+          setAiSuggestion(suggestion);
+        } catch (aiError) {
+          console.error("AI suggestion failed:", aiError);
+          // Gracefully continue without an AI suggestion
+          setAiSuggestion({ actionSuggested: false, action: '' });
+        }
+      } catch (e: any) {
+        setError(e.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadData();
+  }, []);
+
+  if (loading) {
     return (
-      <main className="flex min-h-screen flex-col items-center justify-center bg-background p-4">
-        <p className="text-destructive-foreground bg-destructive p-4 rounded-md">Could not load daily message. Please try again later.</p>
+       <main className="flex min-h-screen flex-col items-center justify-center bg-background p-4">
+        <p>Loading...</p>
       </main>
     );
   }
 
-  if (!messages || messages.length === 0) {
+  if (error) {
+    return (
+      <main className="flex min-h-screen flex-col items-center justify-center bg-background p-4">
+        <p className="text-destructive-foreground bg-destructive p-4 rounded-md">{error}</p>
+      </main>
+    );
+  }
+
+  if (!messageData) {
      return (
       <main className="flex min-h-screen flex-col items-center justify-center bg-background p-4">
         <p className="text-destructive-foreground bg-destructive p-4 rounded-md">No messages available. Please check the configuration.</p>
@@ -42,34 +99,11 @@ export default async function Home() {
     );
   }
 
-  const dayOfYear = getDayOfYear();
-  // Use modulo to loop through messages, ensuring we always have a valid index
-  const messageData = messages[(dayOfYear - 1) % messages.length];
-
-  const today = new Date();
-  const dateString = today.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-
-  let aiSuggestion: SuggestActionOutput = { actionSuggested: false, action: '' };
-
-  try {
-    aiSuggestion = await suggestAction({
-      message: messageData.message,
-      date: dateString,
-    });
-  } catch (error) {
-    console.error("AI suggestion failed:", error);
-    // Continue without an AI suggestion if the flow fails
-  }
-
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-background p-4 sm:p-8">
       <DailyMessageCard
         message={messageData.message}
-        date={dateString}
+        date={dateString!}
         actionSuggestion={aiSuggestion.action}
         actionSuggested={aiSuggestion.actionSuggested}
       />

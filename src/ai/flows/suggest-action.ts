@@ -1,3 +1,4 @@
+
 'use server';
 
 /**
@@ -31,16 +32,13 @@ const prompt = ai.definePrompt({
   name: 'suggestActionPrompt',
   input: {schema: SuggestActionInputSchema},
   output: {schema: SuggestActionOutputSchema},
-  prompt: `Given the following daily faith message and date, suggest a practical action the user can take related to the message.  The action should be something that the user can do in their daily life to apply the message. If no action is appropriate, set actionSuggested to false.
+  prompt: `Given the following daily faith message and date, suggest a practical action the user can take related to the message. The action should be something that the user can do in their daily life to apply the message. If no action is appropriate, set actionSuggested to false and provide an empty string for the action.
 
 Message: {{{message}}}
 Date: {{{date}}}
 
 Consider the user's wellbeing and respect the user's autonomy. Do not suggest any actions that are harmful, illegal, or unethical. If there is no action to suggest based on the message, indicate that you cannot come up with one.
-
-Respond with the following:
-Is action suggested: (true or false)
-Suggested action: (a practical action that the user can take in their daily life to apply the message)`,
+`,
 });
 
 const suggestActionFlow = ai.defineFlow(
@@ -50,7 +48,16 @@ const suggestActionFlow = ai.defineFlow(
     outputSchema: SuggestActionOutputSchema,
   },
   async input => {
-    const {output} = await prompt(input);
-    return output!;
+    try {
+        const {output} = await prompt(input);
+        if (!output) {
+          return { actionSuggested: false, action: '' };
+        }
+        return output;
+    } catch (error) {
+        console.error('Error in suggestActionFlow:', error);
+        // Return a default value in case of any error from the AI prompt
+        return { actionSuggested: false, action: '' };
+    }
   }
 );
