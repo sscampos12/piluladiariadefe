@@ -36,19 +36,19 @@ export default function Home() {
         // In a real client-side scenario, you would fetch this from an API endpoint.
         const response = await fetch('/messages.json');
         if (!response.ok) {
-          throw new Error('Failed to fetch messages');
+          throw new Error('Falha ao buscar mensagens');
         }
         const messages: Message[] = await response.json();
 
         if (!messages || messages.length === 0) {
-            throw new Error("No messages available. Please check the configuration.");
+            throw new Error("Nenhuma mensagem disponível. Por favor, verifique a configuração.");
         }
 
         const currentMessage = messages[(dayOfYear - 1) % messages.length];
         setMessageData(currentMessage);
         
         const today = new Date();
-        const currentDateString = today.toLocaleDateString('en-US', {
+        const currentDateString = today.toLocaleDateString('pt-BR', {
             year: 'numeric',
             month: 'long',
             day: 'numeric',
@@ -62,7 +62,7 @@ export default function Home() {
           });
           setAiSuggestion(suggestion);
         } catch (aiError) {
-          console.error("AI suggestion failed:", aiError);
+          console.error("Falha na sugestão da IA:", aiError);
           // Gracefully continue without an AI suggestion
           setAiSuggestion({ actionSuggested: false, action: '' });
         }
@@ -78,7 +78,7 @@ export default function Home() {
   if (loading) {
     return (
        <main className="flex min-h-screen flex-col items-center justify-center bg-background p-4">
-        <p>Loading...</p>
+        <p>Carregando...</p>
       </main>
     );
   }
@@ -94,7 +94,7 @@ export default function Home() {
   if (!messageData) {
      return (
       <main className="flex min-h-screen flex-col items-center justify-center bg-background p-4">
-        <p className="text-destructive-foreground bg-destructive p-4 rounded-md">No messages available. Please check the configuration.</p>
+        <p className="text-destructive-foreground bg-destructive p-4 rounded-md">Nenhuma mensagem disponível. Por favor, verifique a configuração.</p>
       </main>
     );
   }

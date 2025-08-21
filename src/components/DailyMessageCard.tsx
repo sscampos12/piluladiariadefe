@@ -16,9 +16,9 @@ export default function DailyMessageCard({ message, date, actionSuggestion, acti
   const { toast } = useToast();
 
   const handleShare = async () => {
-    const shareText = `"${message}"\n\n${actionSuggested ? `Today's suggested action: ${actionSuggestion}` : ''}`;
+    const shareText = `"${message}"\n\n${actionSuggested ? `Ação sugerida para hoje: ${actionSuggestion}` : ''}`;
     const shareData = {
-      title: 'Daily Dose of Faith',
+      title: 'Pílula Diária de Fé',
       text: shareText,
       url: typeof window !== 'undefined' ? window.location.href : '',
     };
@@ -26,23 +26,26 @@ export default function DailyMessageCard({ message, date, actionSuggestion, acti
     try {
       if (typeof navigator !== 'undefined' && navigator.share) {
         await navigator.share(shareData);
-        toast({ title: 'Shared successfully!' });
+        toast({ title: 'Compartilhado com sucesso!' });
       } else {
-        throw new Error('Web Share API not supported.');
+        throw new Error('Web Share API não suportada.');
       }
     } catch (error: unknown) {
+      if (error instanceof Error && error.name === 'AbortError') {
+        return;
+      }
       // Fallback to clipboard if sharing fails or is not supported
       if (typeof navigator !== 'undefined' && navigator.clipboard) {
         try {
-          await navigator.clipboard.writeText(`${shareData.title}\n\n${shareText}\n\nRead more at: ${shareData.url}`);
-          toast({ title: 'Copied to clipboard!' });
+          await navigator.clipboard.writeText(`${shareData.title}\n\n${shareText}\n\nLeia mais em: ${shareData.url}`);
+          toast({ title: 'Copiado para a área de transferência!' });
         } catch (copyError) {
-          console.error('Copying to clipboard failed:', copyError);
-          toast({ title: 'Uh oh!', description: 'Could not share or copy the message.', variant: 'destructive' });
+          console.error('Falha ao copiar para a área de transferência:', copyError);
+          toast({ title: 'Ops!', description: 'Não foi possível compartilhar ou copiar a mensagem.', variant: 'destructive' });
         }
       } else if (error instanceof Error && error.name !== 'AbortError') {
-        console.error('Sharing failed:', error);
-        toast({ title: 'Sharing not supported', description: 'Your browser does not support sharing or copying to clipboard.', variant: 'destructive' });
+        console.error('Falha ao compartilhar:', error);
+        toast({ title: 'Compartilhamento não suportado', description: 'Seu navegador não suporta compartilhamento ou cópia para a área de transferência.', variant: 'destructive' });
       }
     }
   };
@@ -54,7 +57,7 @@ export default function DailyMessageCard({ message, date, actionSuggestion, acti
           <div className="mx-auto bg-primary/10 rounded-full p-3 inline-block mb-4">
             <Sun className="w-8 h-8 text-primary" />
           </div>
-          <h1 className="font-headline text-3xl md:text-4xl text-foreground">Daily Dose of Faith</h1>
+          <h1 className="font-headline text-3xl md:text-4xl text-foreground">Pílula Diária de Fé</h1>
           <CardDescription className="font-body text-base mt-1">{date}</CardDescription>
         </CardHeader>
         <CardContent className="px-6 md:px-10 py-8 bg-card">
@@ -71,7 +74,7 @@ export default function DailyMessageCard({ message, date, actionSuggestion, acti
                 <Sparkles className="w-5 h-5 text-accent" />
               </div>
               <div>
-                <h2 className="font-headline text-lg text-accent font-semibold">A Practical Step</h2>
+                <h2 className="font-headline text-lg text-accent font-semibold">Um Passo Prático</h2>
                 <p className="font-body text-foreground/80 mt-1">{actionSuggestion}</p>
               </div>
             </div>
@@ -80,7 +83,7 @@ export default function DailyMessageCard({ message, date, actionSuggestion, acti
         <CardFooter className="justify-center p-6 bg-card">
           <Button onClick={handleShare} size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full px-8 shadow-md transition-transform hover:scale-105">
             <Share2 className="mr-2 h-5 w-5" />
-            Share Your Faith
+            Compartilhe sua Fé
           </Button>
         </CardFooter>
       </Card>

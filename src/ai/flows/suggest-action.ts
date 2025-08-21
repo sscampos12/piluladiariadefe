@@ -2,25 +2,25 @@
 'use server';
 
 /**
- * @fileOverview Suggests a practical action based on the daily message.
+ * @fileOverview Sugere uma ação prática com base na mensagem diária.
  *
- * - suggestAction - A function that suggests an action related to the daily message.
- * - SuggestActionInput - The input type for the suggestAction function.
- * - SuggestActionOutput - The return type for the suggestAction function.
+ * - suggestAction - Uma função que sugere uma ação relacionada à mensagem diária.
+ * - SuggestActionInput - O tipo de entrada para a função suggestAction.
+ * - SuggestActionOutput - O tipo de retorno para a função suggestAction.
  */
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
 const SuggestActionInputSchema = z.object({
-  message: z.string().describe('The daily faith message.'),
-  date: z.string().describe('The current date.'),
+  message: z.string().describe('A mensagem de fé diária.'),
+  date: z.string().describe('A data atual.'),
 });
 export type SuggestActionInput = z.infer<typeof SuggestActionInputSchema>;
 
 const SuggestActionOutputSchema = z.object({
-  actionSuggested: z.boolean().describe('Whether an action is suggested or not.'),
-  action: z.string().describe('The suggested action related to the message.'),
+  actionSuggested: z.boolean().describe('Se uma ação é sugerida ou não.'),
+  action: z.string().describe('A ação sugerida relacionada à mensagem.'),
 });
 export type SuggestActionOutput = z.infer<typeof SuggestActionOutputSchema>;
 
@@ -32,12 +32,12 @@ const prompt = ai.definePrompt({
   name: 'suggestActionPrompt',
   input: {schema: SuggestActionInputSchema},
   output: {schema: SuggestActionOutputSchema},
-  prompt: `Given the following daily faith message and date, suggest a practical action the user can take related to the message. The action should be something that the user can do in their daily life to apply the message. If no action is appropriate, set actionSuggested to false and provide an empty string for the action.
+  prompt: `Dada a seguinte mensagem de fé diária e a data, sugira uma ação prática que o usuário pode tomar relacionada à mensagem. A ação deve ser algo que o usuário possa fazer em sua vida diária para aplicar a mensagem. Se nenhuma ação for apropriada, defina actionSuggested como false e forneça uma string vazia para a ação. Responda em português.
 
-Message: {{{message}}}
-Date: {{{date}}}
+Mensagem: {{{message}}}
+Data: {{{date}}}
 
-Consider the user's wellbeing and respect the user's autonomy. Do not suggest any actions that are harmful, illegal, or unethical. If there is no action to suggest based on the message, indicate that you cannot come up with one.
+Considere o bem-estar do usuário e respeite sua autonomia. Não sugira ações prejudiciais, ilegais ou antiéticas. Se não houver ação a ser sugerida com base na mensagem, indique que você não consegue pensar em uma.
 `,
 });
 
@@ -55,8 +55,8 @@ const suggestActionFlow = ai.defineFlow(
         }
         return output;
     } catch (error) {
-        console.error('Error in suggestActionFlow:', error);
-        // Return a default value in case of any error from the AI prompt
+        console.error('Erro em suggestActionFlow:', error);
+        // Retorna um valor padrão em caso de qualquer erro do prompt da IA
         return { actionSuggested: false, action: '' };
     }
   }
