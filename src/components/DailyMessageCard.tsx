@@ -27,16 +27,22 @@ export default function DailyMessageCard({ message, date, actionSuggestion, acti
       if (typeof navigator !== 'undefined' && navigator.share) {
         await navigator.share(shareData);
         toast({ title: 'Shared successfully!' });
-      } else if (typeof navigator !== 'undefined' && navigator.clipboard) {
-        await navigator.clipboard.writeText(`${shareData.title}\n\n${shareText}\n\nRead more at: ${shareData.url}`);
-        toast({ title: 'Copied to clipboard!' });
       } else {
-        toast({ title: 'Sharing not supported', description: 'Your browser does not support sharing or copying to clipboard.', variant: 'destructive' });
+        throw new Error('Web Share API not supported.');
       }
     } catch (error: unknown) {
-      if (error instanceof Error && error.name !== 'AbortError') {
+      // Fallback to clipboard if sharing fails or is not supported
+      if (typeof navigator !== 'undefined' && navigator.clipboard) {
+        try {
+          await navigator.clipboard.writeText(`${shareData.title}\n\n${shareText}\n\nRead more at: ${shareData.url}`);
+          toast({ title: 'Copied to clipboard!' });
+        } catch (copyError) {
+          console.error('Copying to clipboard failed:', copyError);
+          toast({ title: 'Uh oh!', description: 'Could not share or copy the message.', variant: 'destructive' });
+        }
+      } else if (error instanceof Error && error.name !== 'AbortError') {
         console.error('Sharing failed:', error);
-        toast({ title: 'Uh oh!', description: 'Could not share the message.', variant: 'destructive' });
+        toast({ title: 'Sharing not supported', description: 'Your browser does not support sharing or copying to clipboard.', variant: 'destructive' });
       }
     }
   };
