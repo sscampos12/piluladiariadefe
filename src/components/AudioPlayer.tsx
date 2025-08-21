@@ -33,7 +33,7 @@ export function AudioPlayer({ audioUrl, onClose }: AudioPlayerProps) {
             <iframe
               width="320"
               height="200"
-              src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&controls=1&rel=0&modestbranding=1`}
+              src={`https://www.youtube.com/embed/${youtubeId}?autoplay=0&controls=1&rel=0&modestbranding=1`}
               title="Louvor do Dia"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
