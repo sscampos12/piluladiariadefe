@@ -39,7 +39,7 @@ export const devocionais: { [key: string]: Devocional } = {
     louvor: {
       nome: 'Novo Tempo',
       artista: 'Cassiane',
-      url: 'https://www.youtube.com/watch?v=r6i7NhMxSLQ'
+      url: 'https://open.spotify.com/track/3B3NKMny3222D8XAMApA8G'
     }
   },
 
@@ -66,7 +66,7 @@ export const devocionais: { [key: string]: Devocional } = {
     louvor: {
       nome: 'Ousado Amor',
       artista: 'Isaias Saad',
-      url: 'https://www.youtube.com/watch?v=s2d36c-s-G8'
+      url: 'https://open.spotify.com/track/3IeC261T4wgrtEg0H8FcfT'
     }
   },
 
@@ -93,7 +93,7 @@ export const devocionais: { [key: string]: Devocional } = {
     louvor: {
       nome: 'Crescer',
       artista: 'Fernandinho',
-      url: 'https://www.youtube.com/watch?v=DYzxGGsQOOI'
+      url: 'https://open.spotify.com/track/4YcE3nLAPpxgC11s05m9S4'
     }
   },
 
@@ -120,7 +120,7 @@ export const devocionais: { [key: string]: Devocional } = {
     louvor: {
       nome: 'Ressuscita-me',
       artista: 'Aline Barros',
-      url: 'https://www.youtube.com/watch?v=kJQP7kiw5Fk'
+      url: 'https://open.spotify.com/track/622hF2KpnkyiMoXg320a4Q'
     }
   },
 
@@ -145,9 +145,9 @@ export const devocionais: { [key: string]: Devocional } = {
       'Que lições valiosas você aprendeu com figuras maternas em sua vida?'
     ],
     louvor: {
-      nome: 'Mãe',
-      artista: 'Diante do Trono',
-      url: 'https://www.youtube.com/watch?v=Y0z-hI9E6sE'
+      nome: 'Coração de Mãe',
+      artista: 'Aline Barros',
+      url: 'https://open.spotify.com/track/6Y8b5B2D4h4jG7a0iC7N1k'
     }
   },
 
@@ -172,9 +172,9 @@ export const devocionais: { [key: string]: Devocional } = {
       'Que valores você deseja transmitir para a próxima geração?'
     ],
     louvor: {
-      nome: 'Pai',
-      artista: 'Fernandinho',
-      url: 'https://www.youtube.com/watch?v=DYzxGGsQOOI'
+      nome: 'Pai, Eu Confiarei',
+      artista: 'Bruna Karla',
+      url: 'https://open.spotify.com/track/30sSwwaL5aLp2Vf6bcm2sL'
     }
   },
 
@@ -199,9 +199,9 @@ export const devocionais: { [key: string]: Devocional } = {
       'Como você pode "habitar" mais constantemente na presença de Deus hoje?'
     ],
     louvor: {
-      nome: 'Esconderijo do Altíssimo',
-      artista: 'Regis Danese',
-      url: 'https://www.youtube.com/watch?v=X2P92aPSVU8'
+      nome: 'Salmo 91',
+      artista: 'Eli Soares',
+      url: 'https://open.spotify.com/track/5nO5YkCUu3fW1aGvScnI1w'
     }
   },
 
@@ -225,9 +225,9 @@ export const devocionais: { [key: string]: Devocional } = {
       'Como a demora nas respostas de Deus tem fortalecido sua fé?'
     ],
     louvor: {
-      nome: 'Persistirei',
-      artista: 'Paulo César Baruk',
-      url: 'https://www.youtube.com/watch?v=5fX2NhxZzTI'
+      nome: 'A Oração',
+      artista: 'Nívea Soares',
+      url: 'https://open.spotify.com/track/0YhQuLp2yX0s2yBDeHsynH'
     }
   },
 
@@ -252,9 +252,9 @@ export const devocionais: { [key: string]: Devocional } = {
       'Como você pode se preparar espiritualmente para o novo mês?'
     ],
     louvor: {
-      nome: 'Preparai o Caminho',
-      artista: 'Ministério Zoe',
-      url: 'https://www.youtube.com/watch?v=kJQP7kiw5Fk'
+      nome: 'Quero Conhecer Jesus',
+      artista: 'Alessandro Vilas Boas',
+      url: 'https://open.spotify.com/track/434Qnhryw2QVJgVo5J01bV'
     }
   },
 
@@ -279,9 +279,9 @@ export const devocionais: { [key: string]: Devocional } = {
       'De que maneira prática você pode "cavar mais fundo" e fortalecer seus alicerces em Cristo esta semana?'
     ],
     louvor: {
-      nome: 'Firme Fundamento',
+      nome: 'Firme Fundamento (feat. Paola Carla)',
       artista: 'Julliany Souza',
-      url: 'https://www.youtube.com/watch?v=0I1i_q8Z3qY'
+      url: 'https://open.spotify.com/track/1j2esxiI42im03Ytuz2wA6'
     }
   },
 
@@ -307,7 +307,7 @@ export const devocionais: { [key: string]: Devocional } = {
     louvor: {
       nome: 'Ousado Amor',
       artista: 'Isaias Saad',
-      url: 'https://www.youtube.com/watch?v=s2d36c-s-G8'
+      url: 'https://open.spotify.com/track/3IeC261T4wgrtEg0H8FcfT'
     }
   },
 
@@ -332,9 +332,9 @@ export const devocionais: { [key: string]: Devocional } = {
       'Como você pode se posicionar para receber as novidades de Deus?'
     ],
     louvor: {
-      nome: 'Novidade',
+      nome: 'Coisas Novas',
       artista: 'Fernandinho',
-      url: 'https://www.youtube.com/watch?v=DYzxGGsQOOI'
+      url: 'https://open.spotify.com/track/2fGzEATufrKowSgP96iWkL'
     }
   },
 
@@ -361,7 +361,7 @@ export const devocionais: { [key: string]: Devocional } = {
     louvor: {
       nome: 'Novo Tempo',
       artista: 'Cassiane',
-      url: 'https://www.youtube.com/watch?v=r6i7NhMxSLQ'
+      url: 'https://open.spotify.com/track/3B3NKMny3222D8XAMApA8G'
     }
   },
 
@@ -386,9 +386,9 @@ export const devocionais: { [key: string]: Devocional } = {
       'Como você pode perseverar no bem mesmo quando não vê resultados imediatos?'
     ],
     louvor: {
-      nome: 'Colheita',
-      artista: 'Aline Barros',
-      url: 'https://www.youtube.com/watch?v=kJQP7kiw5Fk'
+      nome: 'Frutos',
+      artista: 'Kleber Lucas',
+      url: 'https://open.spotify.com/track/1v58J0TNYaJTTX39N2vVap'
     }
   },
 
@@ -413,9 +413,9 @@ export const devocionais: { [key: string]: Devocional } = {
       'Como você pode transformar suas queixas diárias em orações de gratidão?'
     ],
     louvor: {
-      nome: 'Sou Grato',
-      artista: 'Thalles Roberto',
-      url: 'https://www.youtube.com/watch?v=9Kzd4h8DGJ8'
+      nome: 'Agradeço',
+      artista: 'Leandro Borges',
+      url: 'https://open.spotify.com/track/4Xm24yJ6vA7fTazyYFcv9e'
     }
   },
 
@@ -440,9 +440,9 @@ export const devocionais: { [key: string]: Devocional } = {
       'Como você pode cooperar com o Espírito Santo no processo de santificação?'
     ],
     louvor: {
-      nome: 'Santo Santo Santo',
-      artista: 'Ana Nóbrega',
-      url: 'https://www.youtube.com/watch?v=xZdUzZ8fC3s'
+      nome: 'Santo',
+      artista: 'Ministério Zoe',
+      url: 'https://open.spotify.com/track/2OgyW3Z9yOYyjpQs2TqYcg'
     }
   },
 
@@ -467,9 +467,9 @@ export const devocionais: { [key: string]: Devocional } = {
       'De que forma você pode "anunciar as virtudes" de Deus através de sua vida?'
     ],
     louvor: {
-      nome: 'Santo Santo Santo',
-      artista: 'Ana Nóbrega',
-      url: 'https://www.youtube.com/watch?v=xZdUzZ8fC3s'
+      nome: 'Santo',
+      artista: 'Ministério Zoe',
+      url: 'https://open.spotify.com/track/2OgyW3Z9yOYyjpQs2TqYcg'
     }
   },
 
@@ -495,8 +495,8 @@ export const devocionais: { [key: string]: Devocional } = {
     ],
     louvor: {
       nome: 'Emanuel',
-      artista: 'Christine D\'Clario',
-      url: 'https://www.youtube.com/watch?v=gTZEfrHybMg'
+      artista: 'Gabriela Rocha',
+      url: 'https://open.spotify.com/track/1fK29a5apcaY6v5X4i5a3C'
     }
   },
 
@@ -522,8 +522,8 @@ export const devocionais: { [key: string]: Devocional } = {
     ],
     louvor: {
       nome: 'Emanuel',
-      artista: 'Christine D\'Clario',
-      url: 'https://www.youtube.com/watch?v=gTZEfrHybMg'
+      artista: 'Gabriela Rocha',
+      url: 'https://open.spotify.com/track/1fK29a5apcaY6v5X4i5a3C'
     }
   },
 
@@ -547,9 +547,9 @@ export const devocionais: { [key: string]: Devocional } = {
       'Que presente você pode dar a Jesus neste Natal?'
     ],
     louvor: {
-      nome: 'Noel',
-      artista: 'Hillsong United',
-      url: 'https://www.youtube.com/watch?v=5gqZJdgQEJU'
+      nome: 'Noite de Paz (Silent Night)',
+      artista: 'Kirk Franklin',
+      url: 'https://open.spotify.com/track/2fPYda5f65n30Qn2nSTjls'
     }
   },
 
@@ -573,9 +573,9 @@ export const devocionais: { [key: string]: Devocional } = {
       'Com que expectativas e sonhos você entrega o próximo ano nas mãos de Deus?'
     ],
     louvor: {
-      nome: 'Até Aqui me Ajudou o Senhor',
-      artista: 'Shirley Carvalhaes',
-      url: 'https://www.youtube.com/watch?v=T8LlHSVnJhY'
+      nome: 'Até Aqui Nos Ajudou o Senhor',
+      artista: 'Samuel Mariano',
+      url: 'https://open.spotify.com/track/6FpB8MmqT5k00ZpPEc3D1N'
     }
   }
 };
@@ -640,14 +640,14 @@ const generateMissingDays = () => {
 
   // Louvores por categoria
   const worship = [
-    { nome: 'Bondade de Deus', artista: 'Aline Barros', url: 'https://www.youtube.com/watch?v=kJQP7kiw5Fk' },
-    { nome: 'Confiança', artista: 'Isaias Saad', url: 'https://www.youtube.com/watch?v=s2d36c-s-G8' },
-    { nome: 'Crescer', artista: 'Fernandinho', url: 'https://www.youtube.com/watch?v=DYzxGGsQOOI' },
-    { nome: 'Esperança', artista: 'Fernanda Brum', url: 'https://www.youtube.com/watch?v=2n-Ybp-Qc-Q' },
-    { nome: 'Gratidão', artista: 'Thalles Roberto', url: 'https://www.youtube.com/watch?v=9Kzd4h8DGJ8' },
-    { nome: 'Santidade', artista: 'Ana Nóbrega', url: 'https://www.youtube.com/watch?v=xZdUzZ8fC3s' },
-    { nome: 'Restauração', artista: 'Diante do Trono', url: 'https://www.youtube.com/watch?v=Y0z-hI9E6sE' },
-    { nome: 'Transformação', artista: 'Paulo César Baruk', url: 'https://www.youtube.com/watch?v=5fX2NhxZzTI' }
+    { nome: 'Bondade de Deus', artista: 'Isaias Saad', url: 'https://open.spotify.com/track/1d4maPA3i6o1s6wM1c03DP' },
+    { nome: 'Confiança', artista: 'Gabi Sampaio', url: 'https://open.spotify.com/track/6t9iKEbZnGaxj2a5e9bA6G' },
+    { nome: 'Teu Reino', artista: 'Ministério Zoe', url: 'https://open.spotify.com/track/4P9UaOaBv2nF9yHq8yXq0c' },
+    { nome: 'Esperança', artista: 'Gabriel Guedes', url: 'https://open.spotify.com/track/1a2212H90Jarg1S2aGfSg3' },
+    { nome: 'A Bênção', artista: 'Gabriel Guedes de Almeida & Nívea Soares', url: 'https://open.spotify.com/track/2Tf54C8nEni2y3E3sN4zua' },
+    { nome: 'Santo Espírito (Holy Spirit)', artista: 'Laura Souguellis', url: 'https://open.spotify.com/track/6031GvAVn6lV3wVwQG33Bq' },
+    { nome: 'Rendido Estou', artista: 'Aline Barros', url: 'https://open.spotify.com/track/2aHhI8uUp5LzfZ2dYyT93b' },
+    { nome: 'Me Atraiu', artista: 'Gabriela Rocha', url: 'https://open.spotify.com/track/73RyP3p3w3wS1jYvXg3I6z' }
   ];
 
   months.forEach(({ month, days }) => {

@@ -8,12 +8,16 @@ interface AudioPlayerProps {
 }
 
 export function AudioPlayer({ audioUrl, onClose }: AudioPlayerProps) {
-  const getYouTubeId = (url: string) => {
-    const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/);
-    return match ? match[1] : null;
+  const getSpotifyEmbedUrl = (url: string) => {
+    const match = url.match(/spotify\.com\/track\/([a-zA-Z0-9]+)/);
+    if (match) {
+      const trackId = match[1];
+      return `https://open.spotify.com/embed/track/${trackId}?utm_source=generator`;
+    }
+    return null;
   };
 
-  const youtubeId = getYouTubeId(audioUrl);
+  const spotifyEmbedUrl = getSpotifyEmbedUrl(audioUrl);
 
   return (
     <div className="fixed bottom-4 right-4 bg-white rounded-xl shadow-2xl border border-gray-200 z-50 max-w-sm">
@@ -28,33 +32,34 @@ export function AudioPlayer({ audioUrl, onClose }: AudioPlayerProps) {
       </div>
 
       <div className="p-4">
-        {youtubeId ? (
+        {spotifyEmbedUrl ? (
           <div className="space-y-3">
             <iframe
+              src={spotifyEmbedUrl}
               width="320"
-              height="200"
-              src={`https://www.youtube.com/embed/${youtubeId}?autoplay=0&controls=1&rel=0&modestbranding=1`}
-              title="Louvor do Dia"
+              height="80"
               frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
               className="rounded-lg w-full"
-            />
+              title="Louvor do Dia - Spotify"
+            ></iframe>
             <div className="flex justify-center">
               <a
                 href={audioUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-sm text-purple-600 hover:text-purple-800 transition-colors"
+                className="flex items-center space-x-2 text-sm text-green-600 hover:text-green-800 transition-colors"
               >
                 <ExternalLink className="w-4 h-4" />
-                <span>Abrir no YouTube</span>
+                <span>Abrir no Spotify</span>
               </a>
             </div>
           </div>
         ) : (
           <div className="text-center p-4">
-            <p className="text-gray-600 mb-3">Link de áudio</p>
+            <p className="text-gray-600 mb-3">Link de áudio inválido para o Spotify.</p>
             <a
               href={audioUrl}
               target="_blank"
