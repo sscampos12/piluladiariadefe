@@ -8,11 +8,6 @@ export interface Devocional {
   leituraBiblica: string;
   palavraChave: string;
   perguntas: string[];
-  louvor: {
-    nome: string;
-    artista: string;
-    url: string;
-  };
 }
 
 export const devocionais: { [key: string]: Devocional } = {
@@ -36,11 +31,6 @@ export const devocionais: { [key: string]: Devocional } = {
       'Que área da sua vida precisa experimentar as "novas misericórdias" de Deus neste ano?',
       'Como você pode demonstrar gratidão pelas misericórdias diárias do Senhor?'
     ],
-    louvor: {
-      nome: 'Novo Tempo',
-      artista: 'Cassiane',
-      url: 'https://www.youtube.com/watch?v=r6i7NhMxSLQ'
-    }
   },
 
   // FEVEREIRO
@@ -63,11 +53,6 @@ export const devocionais: { [key: string]: Devocional } = {
       'Como você pode demonstrar o amor sacrificial de Cristo em seus relacionamentos?',
       'Há alguém que você precisa perdoar e amar incondicionalmente?'
     ],
-    louvor: {
-      nome: 'Ousado Amor',
-      artista: 'Isaias Saad',
-      url: 'https://www.youtube.com/watch?v=s2d36c-s-G8'
-    }
   },
 
   // MARÇO
@@ -90,11 +75,6 @@ export const devocionais: { [key: string]: Devocional } = {
       'Em que área específica você sente que precisa crescer espiritualmente?',
       'Que disciplinas espirituais você pode implementar para facilitar seu crescimento?'
     ],
-    louvor: {
-      nome: 'Crescer',
-      artista: 'Fernandinho',
-      url: 'https://www.youtube.com/watch?v=DYzxGGsQOOI'
-    }
   },
 
   // ABRIL
@@ -117,11 +97,6 @@ export const devocionais: { [key: string]: Devocional } = {
       'Que área "morta" da sua vida precisa experimentar o poder da ressurreição?',
       'Como a realidade da ressurreição de Cristo afeta sua esperança diária?'
     ],
-    louvor: {
-      nome: 'Ressuscita-me',
-      artista: 'Aline Barros',
-      url: 'https://www.youtube.com/watch?v=kJQP7kiw5Fk'
-    }
   },
 
   // MAIO
@@ -144,11 +119,6 @@ export const devocionais: { [key: string]: Devocional } = {
       'Como você pode honrar sua mãe de forma prática hoje?',
       'Que lições valiosas você aprendeu com figuras maternas em sua vida?'
     ],
-    louvor: {
-      nome: 'Coração de Mãe',
-      artista: 'Aline Barros',
-      url: 'https://www.youtube.com/watch?v=kOKx8I_0g1Y'
-    }
   },
 
   // JUNHO
@@ -171,11 +141,6 @@ export const devocionais: { [key: string]: Devocional } = {
       'Como você pode ser uma influência positiva na vida de uma criança ou jovem?',
       'Que valores você deseja transmitir para a próxima geração?'
     ],
-    louvor: {
-      nome: 'Pai, Eu Confiarei',
-      artista: 'Bruna Karla',
-      url: 'https://www.youtube.com/watch?v=30sSwwaL5aLp2Vf6bcm2sL'
-    }
   },
 
   // JULHO - Mês completo
@@ -198,11 +163,6 @@ export const devocionais: { [key: string]: Devocional } = {
       'Onde você tem buscado refúgio nos momentos de dificuldade?',
       'Como você pode "habitar" mais constantemente na presença de Deus hoje?'
     ],
-    louvor: {
-      nome: 'Salmo 91',
-      artista: 'Eli Soares',
-      url: 'https://www.youtube.com/watch?v=5nO5YkCUu3fW1aGvScnI1w'
-    }
   },
 
   '2024-07-02': {
@@ -224,11 +184,6 @@ export const devocionais: { [key: string]: Devocional } = {
       'Há alguma oração que você desistiu de fazer? Por que não retomá-la hoje?',
       'Como a demora nas respostas de Deus tem fortalecido sua fé?'
     ],
-    louvor: {
-      nome: 'A Oração',
-      artista: 'Nívea Soares',
-      url: 'https://www.youtube.com/watch?v=0YhQuLp2yX0s2yBDeHsynH'
-    }
   },
 
   // Continuando com todos os dias de julho...
@@ -251,11 +206,6 @@ export const devocionais: { [key: string]: Devocional } = {
       'Que obstáculos em seu coração precisam ser removidos?',
       'Como você pode se preparar espiritualmente para o novo mês?'
     ],
-    louvor: {
-      nome: 'Quero Conhecer Jesus',
-      artista: 'Alessandro Vilas Boas',
-      url: 'https://www.youtube.com/watch?v=434Qnhryw2QVJgVo5J01bV'
-    }
   },
 
   // AGOSTO - Mês completo baseado no material fornecido
@@ -278,11 +228,6 @@ export const devocionais: { [key: string]: Devocional } = {
       'Qual ensinamento de Jesus você ouviu recentemente, mas ainda não colocou em prática?',
       'De que maneira prática você pode "cavar mais fundo" e fortalecer seus alicerces em Cristo esta semana?'
     ],
-    louvor: {
-      nome: 'Firme Fundamento (feat. Paola Carla)',
-      artista: 'Julliany Souza',
-      url: 'https://www.youtube.com/watch?v=1j2esxiI42im03Ytuz2wA6'
-    }
   },
 
   '2024-08-02': {
@@ -304,11 +249,6 @@ export const devocionais: { [key: string]: Devocional } = {
       'Há alguma situação em que você pode escolher "cobrir com amor" em vez de criticar?',
       'Como você pode demonstrar um amor intenso a alguém da sua família ou círculo de amigos hoje?'
     ],
-    louvor: {
-      nome: 'Ousado Amor',
-      artista: 'Isaias Saad',
-      url: 'https://www.youtube.com/watch?v=s2d36c-s-G8'
-    }
   },
 
   // Continuando com todos os 31 dias de agosto...
@@ -331,11 +271,6 @@ export const devocionais: { [key: string]: Devocional } = {
       'Que "coisa nova" você espera que Deus faça em sua vida neste novo mês?',
       'Como você pode se posicionar para receber as novidades de Deus?'
     ],
-    louvor: {
-      nome: 'Coisas Novas',
-      artista: 'Fernandinho',
-      url: 'https://www.youtube.com/watch?v=2fGzEATufrKowSgP96iWkL'
-    }
   },
 
   // SETEMBRO - Mês completo
@@ -358,11 +293,6 @@ export const devocionais: { [key: string]: Devocional } = {
       'Que área da sua vida precisa experimentar as "novas misericórdias" de Deus neste mês?',
       'Como você pode demonstrar gratidão pelas misericórdias diárias do Senhor?'
     ],
-    louvor: {
-      nome: 'Novo Tempo',
-      artista: 'Cassiane',
-      url: 'https://www.youtube.com/watch?v=r6i7NhMxSLQ'
-    }
   },
 
   // Continuando com todos os dias de setembro...
@@ -385,11 +315,6 @@ export const devocionais: { [key: string]: Devocional } = {
       'Que "sementes" você tem plantado que ainda não viu germinar?',
       'Como você pode perseverar no bem mesmo quando não vê resultados imediatos?'
     ],
-    louvor: {
-      nome: 'Frutos',
-      artista: 'Kleber Lucas',
-      url: 'https://www.youtube.com/watch?v=1v58J0TNYaJTTX39N2vVap'
-    }
   },
 
   // OUTUBRO - Mês completo
@@ -412,11 +337,6 @@ export const devocionais: { [key: string]: Devocional } = {
       'Liste 10 motivos pelos quais você é grato a Deus hoje.',
       'Como você pode transformar suas queixas diárias em orações de gratidão?'
     ],
-    louvor: {
-      nome: 'Agradeço',
-      artista: 'Leandro Borges',
-      url: 'https://www.youtube.com/watch?v=4Xm24yJ6vA7fTazyYFcv9e'
-    }
   },
 
   // Continuando com todos os dias de outubro...
@@ -439,11 +359,6 @@ export const devocionais: { [key: string]: Devocional } = {
       'Em que área específica da sua vida Deus está chamando você para maior santidade?',
       'Como você pode cooperar com o Espírito Santo no processo de santificação?'
     ],
-    louvor: {
-      nome: 'Santo',
-      artista: 'Ministério Zoe',
-      url: 'https://www.youtube.com/watch?v=2OgyW3Z9yOYyjpQs2TqYcg'
-    }
   },
 
   // NOVEMBRO - Mês completo
@@ -466,11 +381,6 @@ export const devocionais: { [key: string]: Devocional } = {
       'Como sua identidade como "santo de Deus" deve influenciar suas decisões diárias?',
       'De que forma você pode "anunciar as virtudes" de Deus através de sua vida?'
     ],
-    louvor: {
-      nome: 'Santo',
-      artista: 'Ministério Zoe',
-      url: 'https://www.youtube.com/watch?v=2OgyW3Z9yOYyjpQs2TqYcg'
-    }
   },
 
   // Continuando com todos os dias de novembro...
@@ -493,11 +403,6 @@ export const devocionais: { [key: string]: Devocional } = {
       'Como você pode preparar seu coração para a celebração do Natal?',
       'De que forma você tem experimentado Jesus como "Emanuel" - Deus conosco?'
     ],
-    louvor: {
-      nome: 'Emanuel',
-      artista: 'Gabriela Rocha',
-      url: 'https://www.youtube.com/watch?v=1fK29a5apcaY6v5X4i5a3C'
-    }
   },
 
   // DEZEMBRO - Mês completo
@@ -520,11 +425,6 @@ export const devocionais: { [key: string]: Devocional } = {
       'Em que situações você mais precisa lembrar que Deus está com você?',
       'Como a realidade do "Emanuel" pode mudar sua forma de enfrentar os desafios?'
     ],
-    louvor: {
-      nome: 'Emanuel',
-      artista: 'Gabriela Rocha',
-      url: 'https://www.youtube.com/watch?v=1fK29a5apcaY6v5X4i5a3C'
-    }
   },
 
   '2024-12-25': {
@@ -546,11 +446,6 @@ export const devocionais: { [key: string]: Devocional } = {
       'Como você pode fazer de Jesus o centro da sua celebração natalina?',
       'Que presente você pode dar a Jesus neste Natal?'
     ],
-    louvor: {
-      nome: 'Noite de Paz (Silent Night)',
-      artista: 'Kirk Franklin',
-      url: 'https://www.youtube.com/watch?v=2fPYda5f65n30Qn2nSTjls'
-    }
   },
 
   '2024-12-31': {
@@ -572,11 +467,6 @@ export const devocionais: { [key: string]: Devocional } = {
       'Quais foram os maiores "Ebenézers" (marcos da fidelidade de Deus) em sua vida este ano?',
       'Com que expectativas e sonhos você entrega o próximo ano nas mãos de Deus?'
     ],
-    louvor: {
-      nome: 'Até Aqui Nos Ajudou o Senhor',
-      artista: 'Samuel Mariano',
-      url: 'https://www.youtube.com/watch?v=6FpB8MmqT5k00ZpPEc3D1N'
-    }
   }
 };
 
@@ -638,18 +528,6 @@ const generateMissingDays = () => {
     'Salvação': { text: 'Hoje vos nasceu o Salvador.', ref: 'Lucas 2:11' }
   };
 
-  // Louvores por categoria
-  const worship = [
-    { nome: 'Bondade de Deus', artista: 'Isaias Saad', url: 'https://www.youtube.com/watch?v=1d4maPA3i6o1s6wM1c03DP' },
-    { nome: 'Confiança', artista: 'Gabi Sampaio', url: 'https://www.youtube.com/watch?v=6t9iKEbZnGaxj2a5e9bA6G' },
-    { nome: 'Teu Reino', artista: 'Ministério Zoe', url: 'https://www.youtube.com/watch?v=4P9UaOaBv2nF9yHq8yXq0c' },
-    { nome: 'Esperança', artista: 'Gabriel Guedes', url: 'https://www.youtube.com/watch?v=1a2212H90Jarg1S2aGfSg3' },
-    { nome: 'A Bênção', artista: 'Gabriel Guedes de Almeida & Nívea Soares', url: 'https://www.youtube.com/watch?v=2Tf54C8nEni2y3E3sN4zua' },
-    { nome: 'Santo Espírito (Holy Spirit)', artista: 'Laura Souguellis', url: 'https://www.youtube.com/watch?v=6031GvAVn6lV3wVwQG33Bq' },
-    { nome: 'Rendido Estou', artista: 'Aline Barros', url: 'https://www.youtube.com/watch?v=2aHhI8uUp5LzfZ2dYyT93b' },
-    { nome: 'Me Atraiu', artista: 'Gabriela Rocha', url: 'https://www.youtube.com/watch?v=73RyP3p3w3wS1jYvXg3I6z' }
-  ];
-
   months.forEach(({ month, days }) => {
     const monthThemes = monthlyThemes[month];
     
@@ -660,8 +538,6 @@ const generateMissingDays = () => {
         const themeIndex = (day - 1) % monthThemes.themes.length;
         const theme = monthThemes.themes[themeIndex];
         const verse = verses[theme] || { text: 'Confiai no Senhor perpetuamente.', ref: 'Isaías 26:4' };
-        const worshipIndex = (day - 1) % worship.length;
-        const worshipSong = worship[worshipIndex];
         
         devocionais[dateKey] = {
           tema: theme,
@@ -683,8 +559,7 @@ const generateMissingDays = () => {
           perguntas: [
             `Como ${theme.toLowerCase()} pode ser mais evidente em sua vida hoje?`,
             `Que passo prático você pode dar para aplicar este ensinamento em seu cotidiano?`
-          ],
-          louvor: worshipSong
+          ]
         };
       }
     }

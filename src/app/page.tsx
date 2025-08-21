@@ -11,15 +11,10 @@ import { DevocionalView } from '@/components/DevocionalView';
 export default function App() {
   const [viewMode, setViewMode] = useState<'home' | 'calendario' | 'devocional'>('home');
   const [selectedDate, setSelectedDate] = useState<string>('');
-  const [currentAudio, setCurrentAudio] = useState<string>('');
-
+  
   const handleDateSelect = (date: string) => {
     setSelectedDate(date);
     setViewMode('devocional');
-  };
-
-  const handlePlayAudio = (audioUrl: string) => {
-    setCurrentAudio(audioUrl);
   };
 
   return (
@@ -93,10 +88,10 @@ export default function App() {
                   
                   <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-xl">
                     <h3 className="text-2xl font-bold text-purple-800 mb-3">
-                      Louvores Inspiradores
+                      Ouça a Reflexão
                     </h3>
                     <p className="text-gray-700 mb-4">
-                      Cada dia acompanha um louvor cuidadosamente selecionado para elevar seu espírito em adoração.
+                      Cada devocional pode ser ouvido com uma narração gerada por IA para momentos de meditação.
                     </p>
                     <div className="flex items-center text-purple-600">
                       <Heart className="w-5 h-5 mr-2" />
@@ -139,18 +134,9 @@ export default function App() {
             date={selectedDate} 
             devocional={devocionais[selectedDate]}
             onBack={() => setViewMode('calendario')}
-            onPlayAudio={handlePlayAudio}
           />
         )}
       </main>
-
-      {/* Audio Player */}
-      {currentAudio && (
-        <AudioPlayer 
-          audioUrl={currentAudio} 
-          onClose={() => setCurrentAudio('')}
-        />
-      )}
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-8 mt-16">
