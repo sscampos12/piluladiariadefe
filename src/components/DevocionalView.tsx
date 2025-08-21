@@ -1,9 +1,10 @@
 'use client';
 import React, { useState } from 'react';
-import { ChevronLeft, BookOpen, Play, LoaderCircle } from 'lucide-react';
+import { ChevronLeft, BookOpen, Play, LoaderCircle, Share2 } from 'lucide-react';
 import type { Devocional } from '../data/devocionais';
 import { textToSpeech } from '@/ai/flows/text-to-speech-flow';
 import { AudioPlayer } from './AudioPlayer';
+import { useToast } from '@/hooks/use-toast';
 
 interface DevocionalViewProps {
   date: string;
@@ -14,6 +15,7 @@ interface DevocionalViewProps {
 export function DevocionalView({ date, devocional, onBack }: DevocionalViewProps) {
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
   const [isLoadingAudio, setIsLoadingAudio] = useState(false);
+  const { toast } = useToast();
 
   const formatDate = (dateString: string) => {
     const [year, month, day] = dateString.split('-');
@@ -34,9 +36,42 @@ export function DevocionalView({ date, devocional, onBack }: DevocionalViewProps
       }
     } catch (error) {
       console.error("Error generating audio:", error);
-      // Aqui você pode adicionar um toast de erro para o usuário
+      toast({
+        title: "Erro ao gerar áudio",
+        description: "Não foi possível gerar o áudio da reflexão. Tente novamente.",
+        variant: "destructive",
+      });
     } finally {
       setIsLoadingAudio(false);
+    }
+  };
+  
+  const handleShare = async () => {
+    const shareText = `*${devocional.tema}*\n\n_"${devocional.versiculo.texto}"_ (${devocional.versiculo.referencia})\n\n${devocional.reflexao.substring(0, 150)}...\n\nVeja a reflexão completa no app Pílula Diária de Fé.`;
+    const shareData = {
+      title: `Pílula Diária de Fé: ${devocional.tema}`,
+      text: shareText,
+      url: window.location.href,
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+        toast({ title: 'Devocional compartilhado com sucesso!' });
+      } else {
+        throw new Error('Web Share API not supported');
+      }
+    } catch (err) {
+      try {
+        await navigator.clipboard.writeText(shareText);
+        toast({ title: 'Copiado para a área de transferência!' });
+      } catch (copyErr) {
+        toast({
+          title: "Erro ao compartilhar",
+          description: "Não foi possível compartilhar ou copiar o devocional.",
+          variant: "destructive",
+        });
+      }
     }
   };
 
@@ -152,6 +187,25 @@ export function DevocionalView({ date, devocional, onBack }: DevocionalViewProps
                 </button>
               </div>
             </div>
+            
+            {/* Share */}
+            <div className="bg-blue-50 p-6 rounded-xl border border-blue-200">
+              <h3 className="text-xl font-bold text-blue-800 mb-4 flex items-center">
+                <Share2 className="w-5 h-5 mr-2" />
+                Compartilhar
+              </h3>
+              <div className="flex items-center justify-between">
+                <p className="text-blue-700">Espalhe a palavra e abençoe a vida de alguém.</p>
+                <button
+                  onClick={handleShare}
+                  className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2"
+                >
+                  <Share2 className="w-4 h-4" />
+                  <span>Compartilhar</span>
+                </button>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
