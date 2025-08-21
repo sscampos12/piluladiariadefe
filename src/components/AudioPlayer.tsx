@@ -40,12 +40,15 @@ export function AudioPlayer({ audioUrl, onClose }: AudioPlayerProps) {
               allowFullScreen
               className="rounded-lg w-full"
             />
-            <div className="flex justify-center">
+            <div className="text-center space-y-2">
+              <p className="text-xs text-gray-500">
+                Se o vídeo não tocar, tente abri-lo diretamente no YouTube.
+              </p>
               <a
                 href={audioUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-sm text-purple-600 hover:text-purple-800 transition-colors"
+                className="inline-flex items-center space-x-2 text-sm text-purple-600 hover:text-purple-800 transition-colors"
               >
                 <ExternalLink className="w-4 h-4" />
                 <span>Abrir no YouTube</span>
